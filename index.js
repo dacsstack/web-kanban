@@ -131,8 +131,8 @@ taskbox.forEach(column => {
                 content: content
             });
         }
-    })
-})
+    });
+});
 /* notify.classList.remove("hide");
 return notify.querySelector("p").textContent = `Please add a proper transaction!`;
     } else {

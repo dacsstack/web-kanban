@@ -29,8 +29,6 @@ export default class Kanban {
         const data = read();
         function findColumnTask() {
             for (const column of data) {
-
-                //find task
                 const task = column.tasks.find(item => {
                     return item.taskId == taskId;
                 });
@@ -64,23 +62,22 @@ export default class Kanban {
     }
         
     static getAllTasks() {
-        //Call Read function
         const data = read();
-        //Add ColumnCount
         columnCount();
-        //return data; //Object format
         return [data[0].tasks, data[1].tasks, data[2].tasks];
 
     }
 }
     
-function read() {
+function read(){
     const data = localStorage.getItem("data");
-    if (!data) {
+    
+    //If Empty
+    if(!data){
         return [
-            { colomnId: 0, tasks: [] },
-            { colomnId: 1, tasks: [] },
-            { colomnId: 2, tasks: [] }
+            {columnId: 0, tasks: []}, 
+            {columnId: 1, tasks: []}, 
+            {columnId: 2, tasks: []}
         ];
     }
     return JSON.parse(data);

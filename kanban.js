@@ -8,7 +8,7 @@ export default class Kanban {
         //Get particular column
         const data = read().find(column => {
             return column.columnId == columnId;
-        })
+        });
 
         //if data is empty return array
         /* if (!data) {

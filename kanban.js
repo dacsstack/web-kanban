@@ -7,7 +7,6 @@ export default class Kanban {
         
         return data.tasks;
     }
-
     //Insert
     static insertTask(columnId, content){
         const data = read();
@@ -21,7 +20,7 @@ export default class Kanban {
 
         column.tasks.push(task);
         console.log(data);
-        save(data); // Calling Save Data Function
+        save(data); 
 
         return task;
     }
@@ -35,12 +34,11 @@ export default class Kanban {
                 const task = column.tasks.find(item => {
                     return item.taskId == taskId;
                 });
-
-                //Return the information
                 if (task) {
                     return [task, column];
                 }
             }
+        }
         const [task, currentColumn] = findColumnTask();
         const targetColumn = data.find(column => {
             return column.columnId == updatedInformation.columnId;
@@ -50,6 +48,7 @@ export default class Kanban {
         targetColumn.tasks.push(task);
         save(data);
     }
+        
     static deleteTask(taskId) {
         const data = read();
 
@@ -63,6 +62,7 @@ export default class Kanban {
         }
         save(data);
     }
+        
     static getAllTasks() {
         //Call Read function
         const data = read();
@@ -73,7 +73,7 @@ export default class Kanban {
 
     }
 }
-
+    
 function read() {
     const data = localStorage.getItem("data");
     if (!data) {
@@ -91,6 +91,7 @@ function save(data) {
     localStorage.setItem("data", JSON.stringify(data));
     columnCount();
 }
+    
 function columnCount() {
     const data = read();
 

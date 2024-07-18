@@ -181,4 +181,4 @@ function columnCount() {
     content: "To edit Kanban Content for development"
 }); */
 
-//console.log(Kanban.getAllTasks());
+console.log(Kanban.getAllTasks());

@@ -8,7 +8,7 @@ export default class Kanban {
     }
 
     //Insert
-    static insertTask(columnId, content) {
+    static insertTask(columnId, content){
         const data = read();
         const column = data.find(column => {
             return column.columnId == columnId;
@@ -20,8 +20,8 @@ export default class Kanban {
 
         column.tasks.push(task);
         console.log(data);
-        save(data);
-        
+        save(data); // Calling Save Data Function
+
         return task;
     }
 
